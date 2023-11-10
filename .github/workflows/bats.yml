@@ -1,0 +1,16 @@
+name: Bats installation 
+run-name: ${{ github.actor }} learning workflows
+on: 
+  push
+jobs:
+  bat-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/node-setup@v3
+				with:
+					node-version: '18.x'
+			- run: npm install -g bats
+			- run: bats -v
+              
+
