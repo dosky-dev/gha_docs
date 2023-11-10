@@ -1,16 +1,14 @@
-name: Bats installation 
+name: learning github actions
 run-name: ${{ github.actor }} learning workflows
-on: 
+on:
   push
 jobs:
-  bat-job:
+  check-bats:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/node-setup@v3
-				with:
-					node-version: '18.x'
-			- run: npm install -g bats
-			- run: bats -v
-              
-
+    - uses: actions/checkout@v4
+    - uses: actions/node-setup@v3
+      with:
+        node-version: '18.x'
+    - run: npm install -g bats
+    - run: bats -v
