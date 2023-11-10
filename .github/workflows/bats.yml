@@ -5,10 +5,13 @@ on:
 jobs:
   check-bats:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16,16,18]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v3
       with:
-        node-version: '18.x'
+        node-version: ${{ matrix.node }}
     - run: npm install -g bats
     - run: bats -v
